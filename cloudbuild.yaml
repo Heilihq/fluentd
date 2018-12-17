@@ -9,6 +9,11 @@ steps:
   args:
   - push
   - gcr.io/$PROJECT_ID/fluentd:$BRANCH_NAME
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - tag
+  - gcr.io/$PROJECT_ID/fluentd:$BRANCH_NAME
+  - gcr.io/$PROJECT_ID/fluentd:$COMMIT_SHA
 - name: 'gcr.io/cloud-builders/kubectl'
   entrypoint: 'bash'
   args:
