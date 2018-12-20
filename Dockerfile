@@ -2,6 +2,7 @@ FROM fluent/fluentd:v1.3.1
 
 RUN apk add --update --virtual .build-deps \
         sudo build-base ruby-dev git \
+ && apk add libstdc++ \
  && sudo gem install \
         specific_install \
         fluent-plugin-elasticsearch \
