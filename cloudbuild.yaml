@@ -19,7 +19,7 @@ steps:
   args:
   - '-c'
   - |
-    [[ "$BRANCH_NAME" != "master" ]] && /builder/kubectl.bash set image deployments -l role=fluentd fluentd=gcr.io/$PROJECT_ID/fluentd:$BRANCH_NAME --record || echo "skipping . . ."
+    [[ "$BRANCH_NAME" != "master" ]] && /builder/kubectl.bash set image deployments -l role=fluentd-nats fluentd=gcr.io/$PROJECT_ID/fluentd:$BRANCH_NAME --record || echo "skipping . . ."
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
   - 'CLOUDSDK_CONTAINER_CLUSTER=heili-us-central1'
